@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:30 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/26 16:55:44 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:40:52 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ typedef struct s_pipex
 
 void	error(char *msg_error);
 void	close_tubes(t_pipex *pipex);
-void	check_path(char *path);
+void	check_file(char *path);
 void	add_path(char *path);
+char	*check_env(char **path);
 
 #endif
