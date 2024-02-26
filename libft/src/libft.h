@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:54:03 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/01/24 15:58:07 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:05:36 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *s);
+size_t	ft_strcat(char *dst, const char *src);
 
 /*
 ********************************************************************************

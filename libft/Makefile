@@ -6,7 +6,7 @@
 #    By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/16 15:55:15 by bda-mota          #+#    #+#              #
-#    Updated: 2024/01/29 13:10:29 by bda-mota         ###   ########.fr        #
+#    Updated: 2024/02/26 17:00:45 by bda-mota         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ CFILES	:= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.
 			get_next_line.c get_next_line_utils.c get_next_line_bonus.c get_next_line_utils_bonus.c \
 			ft_printf.c ftprint_char_functions.c ftprint_number_functions.c ftprint_hex_functions.c \
 			ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c ft_lstsize.c ft_lstclear.c \
-			ft_lstdelone.c ft_lstiter.c ft_lstmap.c ft_strcmp.c
+			ft_lstdelone.c ft_lstiter.c ft_lstmap.c ft_strcmp.c ft_strcat.c
 SRC		:= $(addprefix $(SRC_DIR)/, $(CFILES))
 OBJS	:= $(addprefix $(OBJ_DIR)/, $(notdir $(CFILES:%.c=%.o)))
 

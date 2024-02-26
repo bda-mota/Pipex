@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:30 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/26 16:32:22 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:55:44 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define WARNING_1 "Misssing arguments.\n"
 # define WARNING_2 "Too many arguments\n"
 # define WARNING_3 "Should be executed as: ./pipex file1 cmd1 cmd2 file2\n"
+# define WARNING_4 "Non-exixtent command\n"
 # define WARNING_G "error: open, write, read, pipe or fork"
 
 typedef struct s_pipex
@@ -40,5 +41,7 @@ typedef struct s_pipex
 
 void	error(char *msg_error);
 void	close_tubes(t_pipex *pipex);
+void	check_path(char *path);
+void	add_path(char *path);
 
 #endif

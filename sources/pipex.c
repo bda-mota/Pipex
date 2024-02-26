@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:33 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/26 16:42:48 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:47:00 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_pipex	pipex;
-	char	*s;
 
-	s = argv[1];
 	if (argc == 3)
 		return (-1);
 	pipe(pipex.tube);
@@ -28,6 +26,7 @@ int	main(int argc, char **argv)
 	{
 		close(pipex.tube[0]);
 		dup2(pipex.tube[1], 1);
+		check_path(argv[1]);
 		execve("/usr/bin/ls", (char *[]){"ls", "-l", "../../", NULL}, 0);
 	}
 	pipex.pid2 = fork();
