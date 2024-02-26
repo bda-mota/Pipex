@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 11:13:33 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/26 11:26:43 by bda-mota         ###   ########.fr       */
+/*   Created: 2024/02/26 12:45:09 by bda-mota          #+#    #+#             */
+/*   Updated: 2024/02/26 16:32:13 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-int	main(int argc, char **argv)
+void	error(char *msg_error)
 {
-	char	*s;
+	while (*msg_error)
+	{
+		write (1, &*msg_error, 1);
+		msg_error++;
+	}
+}
 
-	s = argv[1];
-	if (argc == 5)
-		ft_printf("foi");
-	else if (argc < 5)
-	{
-		ft_printf("Missign arguments.\n");
-		ft_printf("Show execute like: ./pipex file1 cmd1 cmd2 file2\n");
-	}
-	else
-	{
-		ft_printf("Too many arguments\n");
-		ft_printf("Show execute like: ./pipex file1 cmd1 cmd2 file2\n");
-	}
+void	close_tubes(t_pipex *pipex)
+{
+	close(pipex->tube[0]);
+	close(pipex->tube[1]);
+
 }

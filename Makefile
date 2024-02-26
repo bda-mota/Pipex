@@ -6,7 +6,7 @@
 #    By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/26 11:18:55 by bda-mota          #+#    #+#              #
-#    Updated: 2024/02/26 11:27:25 by bda-mota         ###   ########.fr        #
+#    Updated: 2024/02/26 16:43:56 by bda-mota         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ BONUS_PATH	:= sources_bonus
 OBONUS_PATH	:= objects_bonus
 
 # SOURCES
-CFILES		:= init.c
+CFILES		:= pipex.c utils.c
 
 CBONUS		:=
 
