@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:33 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/27 13:58:24 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:32:31 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int argc, char **argv, char **env)
 	build_env(&pipex);
 	assign_variables(&pipex, argv);
 	check_files(&pipex);
+	check_commands(&pipex);
 }
 
 // if (argc == 3)

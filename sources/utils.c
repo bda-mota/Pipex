@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:45:09 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/27 14:20:00 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:43:59 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,6 @@ void    assign_variables(t_pipex *pipex, char **argv)
 	pipex->outfile = argv[4];   
 }
 
-int check_arguments(int argc)
-{
-	if (argc < 5)
-		return (error(WARNING_1), error(WARNING_3), (FAILURE));
-	else if (argc > 5)
-		return (error (WARNING_2), error(WARNING_3), (FAILURE));
-	else
-		return (SUCESS);
-}
-
 void	error(char *msg_error)
 {
 	while (*msg_error)
@@ -39,18 +29,6 @@ void	error(char *msg_error)
 	}
 }
 
-int check_files(t_pipex *pipex)
-{
-	if (access(pipex->infile, F_OK) == -1)
-		return (error(WARNING_4), FAILURE);
-	if (access(pipex->infile, R_OK) == -1)
-		return (error(WARNING_5), FAILURE);
-	if (access(pipex->outfile, F_OK) == -1)
-		return (SUCESS);
-	if (access(pipex->outfile, W_OK) == -1)
-		return (error(WARNING_6), FAILURE);
-	return (1);
-}
 // void	close_tubes(t_pipex *pipex)
 // {
 // 	close(pipex->tube[0]);
