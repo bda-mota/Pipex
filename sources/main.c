@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:33 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/27 11:58:42 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:11:51 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	main(int argc, char **argv, char **env)
 {
 	t_pipex	pipex;
 	
-	if (argc < 0)
-		return (1);
+	if (!check_arguments(argc))
+		exit(0);
 	pipex.complete_env = find_env(env);
 	build_env(&pipex);
 	assign_variables(&pipex, argv);

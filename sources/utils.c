@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:45:09 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/27 11:55:26 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:12:28 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,24 @@ void    assign_variables(t_pipex *pipex, char **argv)
     pipex->outfile = argv[4];   
 }
 
-// void	error(char *msg_error)
-// {
-// 	while (*msg_error)
-// 	{
-// 		write (1, &*msg_error, 1);
-// 		msg_error++;
-// 	}
-// }
+int check_arguments(int argc)
+{
+    if (argc < 5)
+        return (error(WARNING_1), error(WARNING_3), (FAILURE));
+    else if (argc > 5)
+        return (error (WARNING_2), error(WARNING_3), (FAILURE));
+    else
+        return (SUCESS);
+}
 
+void	error(char *msg_error)
+{
+	while (*msg_error)
+    {
+ 		write (1, &*msg_error, 1);
+		msg_error++;
+    }
+}
 // void	close_tubes(t_pipex *pipex)
 // {
 // 	close(pipex->tube[0]);
@@ -44,7 +53,4 @@ void    assign_variables(t_pipex *pipex, char **argv)
 // 		ft_printf("achei\n");
 // }
 
-// void	add_path(char *path)
-// {
 
-// }

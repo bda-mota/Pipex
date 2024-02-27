@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:30 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/27 11:56:25 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:09:49 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 // malloc
 # include <stdlib.h>
 
+# define SUCESS 1
+# define FAILURE -1
 # define WARNING_1 "Misssing arguments.\n"
 # define WARNING_2 "Too many arguments\n"
 # define WARNING_3 "Should be executed as: ./pipex file1 cmd1 cmd2 file2\n"
@@ -44,12 +46,12 @@ typedef struct s_pipex
 }	t_pipex;
 
 //void	create_pipex(int argc, char **argv, char **env);
-void	error(char *msg_error);
-void	close_tubes(t_pipex *pipex);
-void	check_file(char *path);
-void	add_path(char *path);
+int 	check_arguments(int argc);
 char	*find_env(char **path);
+void	error(char *msg_error);
 void	build_env(t_pipex *pipex);
 void    assign_variables(t_pipex *pipex, char **argv);
+void	check_file(char *path);
+void	close_tubes(t_pipex *pipex);
 
 #endif
