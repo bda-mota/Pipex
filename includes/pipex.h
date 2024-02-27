@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:30 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/26 18:40:52 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/27 11:56:25 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,24 @@
 
 typedef struct s_pipex
 {
-	int	tube[2];
-	int	pid1;
-	int	pid2;
-	int	infile;
-	int	outfile;
+	char	**env;
+	char	*complete_env;
+	char	*cmd1;
+	char	*cmd2;
+	char	*infile;
+	char	*outfile;
+	int		tube[2];
+	int		pid1;
+	int		pid2;
 }	t_pipex;
 
+//void	create_pipex(int argc, char **argv, char **env);
 void	error(char *msg_error);
 void	close_tubes(t_pipex *pipex);
 void	check_file(char *path);
 void	add_path(char *path);
-char	*check_env(char **path);
+char	*find_env(char **path);
+void	build_env(t_pipex *pipex);
+void    assign_variables(t_pipex *pipex, char **argv);
 
 #endif

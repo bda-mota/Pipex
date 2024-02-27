@@ -26,7 +26,7 @@ BONUS_PATH	:= sources_bonus
 OBONUS_PATH	:= objects_bonus
 
 # SOURCES
-CFILES		:= pipex.c utils.c env.c
+CFILES		:= main.c pipex.c utils.c env.c
 
 CBONUS		:=
 
