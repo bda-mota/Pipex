@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:33 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/27 15:32:31 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/28 13:27:25 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 int	main(int argc, char **argv, char **env)
 {
 	t_pipex	pipex;
-	
+
 	if (check_arguments(argc) == -1)
 		return (-1);
 	pipex.complete_env = find_env(env);
 	build_env(&pipex);
-	assign_variables(&pipex, argv);
+	assign_variables(&pipex, argc, argv);
 	check_files(&pipex);
 	check_commands(&pipex);
+	open_files(&pipex);
 }
 
 // if (argc == 3)

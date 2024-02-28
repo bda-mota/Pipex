@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:30 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/27 16:33:48 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/28 13:31:11 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define WARNING_FILES_1 "Non-existent file.\n"
 # define WARNING_FILES_2 "File unreadable.\n"
 # define WARNING_FILES_3 "Destination file is not writeable.\n"
+# define WARNING_FILES_4 "Error opening the file.\n"
 # define WARNING_CMD_1 "Non-existent command.\n"
 # define WARNING_CMD_2 "Unreadable command.\n"
 # define WARNING_CMD_3 "Unexecutable command.\n"
@@ -44,21 +45,24 @@ typedef struct s_pipex
 	char	*cmd2;
 	char	*infile;
 	char	*outfile;
+	int		cmd_qtd;
+	int		fd1;
+	int		fd2;
 	int		tube[2];
-	int		qtd_cmd;
 	int		pid1;
 	int		pid2;
 }	t_pipex;
 
 //void	create_pipex(int argc, char **argv, char **env);
-int 	check_arguments(int argc);
+int		check_arguments(int argc);
 char	*find_env(char **path);
 void	build_env(t_pipex *pipex);
 char	*add_cmd_env(t_pipex *pipex, char *cmd);
 void	error(char *msg_error);
-void    assign_variables(t_pipex *pipex, char **argv);
-int 	check_files(t_pipex *pipex);
+void	assign_variables(t_pipex *pipex, int argc, char **argv);
+int		check_files(t_pipex *pipex);
+int		open_files(t_pipex *pipex);
 int		check_commands(t_pipex *pipex);
-void	close_tubes(t_pipex *pipex);
+//void	close_tubes(t_pipex *pipex);
 
 #endif
