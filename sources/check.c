@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 14:43:29 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/28 19:11:14 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/28 19:50:27 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ void	check_files(t_pipex *pipex)
 	if (access(pipex->outfile, W_OK) == -1)
 		error(WARNING_FILES_3);
 }
-
