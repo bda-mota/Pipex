@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 18:27:57 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/28 15:10:57 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:39:01 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,21 @@ void	build_env(t_pipex *pipex)
 char	*add_cmd_env(t_pipex *pipex, char *cmd)
 {
 	int		i;
+	char	*aux;
 	char	*aux_cmd;
+	char	**take_first;
 
 	i = 0;
-	aux_cmd = cmd;
+	take_first = ft_split(cmd, ' ');
+	aux = take_first[i];
 	while (pipex->env[i])
 	{
-		aux_cmd = ft_strjoin(pipex->env[i], cmd);
+		aux_cmd = ft_strjoin(pipex->env[i], aux);
 		if (access(aux_cmd, F_OK) == 0)
 			return (aux_cmd);
 		i++;
 	}
-	free_split(pipex->env);
+	free_split(take_first);
 	free(aux_cmd);
 	return (NULL);
 }

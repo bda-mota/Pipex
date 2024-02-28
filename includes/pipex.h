@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:30 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/28 15:37:29 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/28 16:07:45 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ typedef struct s_pipex
 	char	*cmd2;
 	char	*infile;
 	char	*outfile;
-	int		cmd_qtd;
 	int		tube[2];
 	int		pid1;
 	int		pid2;
@@ -64,8 +63,9 @@ int		check_files(t_pipex *pipex);
 int		check_commands(t_pipex *pipex);
 int		open_tube(t_pipex *pipex);
 void	close_tubes(t_pipex *pipex);
-void	first_child(t_pipex *pipex);
-void	second_child(t_pipex *pipex);
+void	first_child(t_pipex *pipex, char *command);
+void	second_child(t_pipex *pipex, char *command);
 void	free_split(char **matrix);
+void	implement(t_pipex *pipex, char *command, char *executable);
 
 #endif

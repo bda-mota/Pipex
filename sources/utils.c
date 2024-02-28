@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:45:09 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/28 15:37:07 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/28 15:42:10 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	assign_variables(t_pipex *pipex, int argc, char **argv)
 	pipex->cmd1 = argv[2];
 	pipex->cmd2 = argv[3];
 	pipex->outfile = argv[argc - 1];
-	pipex->cmd_qtd = argc - 3;
 }
 
 void	error(char *msg_error)
