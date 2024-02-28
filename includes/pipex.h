@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:30 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/28 16:07:45 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:48:28 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	build_env(t_pipex *pipex);
 char	*add_cmd_env(t_pipex *pipex, char *cmd);
 void	error(char *msg_error);
 void	assign_variables(t_pipex *pipex, int argc, char **argv);
-int		check_files(t_pipex *pipex);
-int		check_commands(t_pipex *pipex);
+void	check_files(t_pipex *pipex);
+void	check_commands(t_pipex *pipex);
 int		open_tube(t_pipex *pipex);
 void	close_tubes(t_pipex *pipex);
 void	first_child(t_pipex *pipex, char *command);

@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:57:41 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/28 16:08:06 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/28 18:50:58 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	first_child(t_pipex *pipex, char *command)
 {
 	int	fd1;
 
+	if (access(pipex->infile, F_OK) == -1)
+		return ;
 	fd1 = open(pipex->infile, O_RDONLY);
 	if (fd1 == -1)
 		return ;
