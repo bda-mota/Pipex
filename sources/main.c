@@ -6,11 +6,13 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:33 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/28 13:27:25 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/28 15:18:49 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
+
+void	finish(t_pipex *pipex);
 
 int	main(int argc, char **argv, char **env)
 {
@@ -24,8 +26,17 @@ int	main(int argc, char **argv, char **env)
 	check_files(&pipex);
 	check_commands(&pipex);
 	open_files(&pipex);
+	open_tube(&pipex);
+	finish(&pipex);
 }
 
+void	finish(t_pipex *pipex)
+{
+	free_split(pipex->env);
+	free(pipex->cmd1);
+	free(pipex->cmd2);
+
+}
 // if (argc == 3)
 // 		return (-1);
 // 	pipe(pipex.tube);

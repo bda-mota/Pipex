@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:30 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/28 13:31:11 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/28 15:37:29 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 
 # define SUCESS 1
 # define FAILURE -1
+# define WARNING_ENV "Path not found.\n"
 # define WARNING_ARGS_1 "Misssing arguments.\n"
 # define WARNING_ARGS_2 "Too many arguments.\n"
 # define WARNING_ARGS_3 "Should be executed as: ./pipex file1 cmd1 cmd2 file2.\n"
@@ -36,24 +37,23 @@
 # define WARNING_CMD_1 "Non-existent command.\n"
 # define WARNING_CMD_2 "Unreadable command.\n"
 # define WARNING_CMD_3 "Unexecutable command.\n"
+# define WARNING_TUBE "Error create the tube.\n"
 
 typedef struct s_pipex
 {
 	char	**env;
+	char	**argv_child;
 	char	*complete_env;
 	char	*cmd1;
 	char	*cmd2;
 	char	*infile;
 	char	*outfile;
 	int		cmd_qtd;
-	int		fd1;
-	int		fd2;
 	int		tube[2];
 	int		pid1;
 	int		pid2;
 }	t_pipex;
 
-//void	create_pipex(int argc, char **argv, char **env);
 int		check_arguments(int argc);
 char	*find_env(char **path);
 void	build_env(t_pipex *pipex);
@@ -61,8 +61,11 @@ char	*add_cmd_env(t_pipex *pipex, char *cmd);
 void	error(char *msg_error);
 void	assign_variables(t_pipex *pipex, int argc, char **argv);
 int		check_files(t_pipex *pipex);
-int		open_files(t_pipex *pipex);
 int		check_commands(t_pipex *pipex);
-//void	close_tubes(t_pipex *pipex);
+int		open_tube(t_pipex *pipex);
+void	close_tubes(t_pipex *pipex);
+void	first_child(t_pipex *pipex);
+void	second_child(t_pipex *pipex);
+void	free_split(char **matrix);
 
 #endif
