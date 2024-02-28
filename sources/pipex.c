@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:57:41 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/28 18:50:58 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/28 19:22:22 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	first_child(t_pipex *pipex, char *command)
 {
 	int	fd1;
 
+	if (access(pipex->cmd1, F_OK) == -1)
+		pipex->cmd1 = add_cmd_env(pipex, pipex->cmd1);
 	if (access(pipex->infile, F_OK) == -1)
 		return ;
 	fd1 = open(pipex->infile, O_RDONLY);
@@ -37,6 +39,8 @@ void	second_child(t_pipex *pipex, char *command)
 {
 	int	fd2;
 
+	if (access(pipex->cmd2, F_OK) == -1)
+		pipex->cmd2 = add_cmd_env(pipex, pipex->cmd2);
 	fd2 = open(pipex->outfile, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd2 == -1)
 		return ;
@@ -50,6 +54,8 @@ void	second_child(t_pipex *pipex, char *command)
 		close(fd2);
 		implement(pipex, command, pipex->cmd2);
 	}
+	if (pipex->cmd2 == NULL)
+		error(WARNING_CMD_1);
 }
 
 void	implement(t_pipex *pipex, char *command, char *executable)

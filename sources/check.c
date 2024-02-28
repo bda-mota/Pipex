@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 14:43:29 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/28 18:51:33 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/28 19:11:14 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,3 @@ void	check_files(t_pipex *pipex)
 		error(WARNING_FILES_3);
 }
 
-void	check_commands(t_pipex *pipex)
-{
-	if (access(pipex->cmd1, F_OK) == -1)
-		pipex->cmd1 = add_cmd_env(pipex, pipex->cmd1);
-	if (access(pipex->cmd2, F_OK) == -1)
-		pipex->cmd2 = add_cmd_env(pipex, pipex->cmd2);
-	if (pipex->cmd1 == NULL && pipex->cmd2 == NULL)
-		error(WARNING_CMD_1);
-	if (access(pipex->cmd2, R_OK) == -1)
-		error(WARNING_CMD_2);
-	if (access(pipex->cmd2, R_OK) == 0 && access(pipex->cmd2, X_OK) == -1)
-		error(WARNING_CMD_3);
-}

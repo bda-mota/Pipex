@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:45:09 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/28 15:42:10 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/02/28 19:03:54 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,24 @@ void	assign_variables(t_pipex *pipex, int argc, char **argv)
 
 void	error(char *msg_error)
 {
+	while (*msg_error)
+	{
+		write(1, &*msg_error, 1);
+		msg_error++;
+	}
+}
+
+void	error_cmd(char *cmd, char *msg_error)
+{
+	int	i;
+
+	i = 0;
+	while (cmd[i])
+	{
+		write(1, &cmd[i], 1);
+		i++;
+	}
+	write(1, ": ", 2);
 	while (*msg_error)
 	{
 		write(1, &*msg_error, 1);
