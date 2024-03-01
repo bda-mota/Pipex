@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:30 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/02/28 19:11:21 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/01 12:58:56 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@
 # define WARNING_ARGS_1 "Misssing arguments.\n"
 # define WARNING_ARGS_2 "Too many arguments.\n"
 # define WARNING_ARGS_3 "Should be executed as: ./pipex file1 cmd1 cmd2 file2.\n"
-# define WARNING_FILES_1 "Non-existent file.\n"
+# define WARNING_FILES_1 "zsh: no such file or directory: "
 # define WARNING_FILES_2 "File unreadable.\n"
 # define WARNING_FILES_3 "Destination file is not writeable.\n"
 # define WARNING_FILES_4 "Error opening the file.\n"
-# define WARNING_CMD_1 "Command not found.\n"
+# define WARNING_CMD_1 "zsh: command not found: "
 # define WARNING_CMD_2 "Unreadable command.\n"
 # define WARNING_CMD_3 "Unexecutable command.\n"
 # define WARNING_TUBE "Error create the tube.\n"
@@ -60,7 +60,7 @@ char	*add_cmd_env(t_pipex *pipex, char *cmd);
 void	error(char *msg_error);
 void	assign_variables(t_pipex *pipex, int argc, char **argv);
 void	check_files(t_pipex *pipex);
-void	error_cmd(char *cmd, char *msg_error);
+void	check_commands(t_pipex *pipex, char **argv, int argc);
 int		open_tube(t_pipex *pipex);
 void	close_tubes(t_pipex *pipex);
 void	first_child(t_pipex *pipex, char *command);
