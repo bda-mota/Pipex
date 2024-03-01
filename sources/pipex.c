@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:57:41 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/01 12:19:47 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/01 17:15:39 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ void	second_child(t_pipex *pipex, char *command)
 		close(fd2);
 		implement(pipex, command, pipex->cmd2);
 	}
-	if (pipex->cmd2 == NULL)
-		error(WARNING_CMD_1);
 }
 
 void	implement(t_pipex *pipex, char *command, char *executable)
@@ -60,4 +58,5 @@ void	implement(t_pipex *pipex, char *command, char *executable)
 	if (executable == NULL)
 		return ;
 	execve(executable, pipex->argv_child, pipex->env);
+	free_split(pipex->argv_child);
 }

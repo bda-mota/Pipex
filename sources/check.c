@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 14:43:29 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/01 12:58:48 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:29:47 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ void	check_commands(t_pipex *pipex, char **argv, int argc)
 	if (access(pipex->cmd2, F_OK) == -1)
 	{
 		error(WARNING_CMD_1);
-		error(argv[argc - 1]);
+		error(argv[argc - 2]);
 		write(1, "\n", 1);
 	}
-
 }
