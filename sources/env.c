@@ -6,13 +6,13 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 18:27:57 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/04 12:20:29 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/04 15:39:59 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-char	*find_env(char **env)
+static char	*find_env(char **env)
 {
 	int		i;
 	int		len;
@@ -35,12 +35,13 @@ char	*find_env(char **env)
 	return (error(WARNING_ENV), NULL);
 }
 
-void	build_env(t_pipex *pipex)
+void	build_env(t_pipex *pipex, char **env)
 {
 	int		i;
 	char	*aux;
 
 	i = 0;
+	pipex->complete_env = find_env(env);
 	pipex->env = ft_split(pipex->complete_env, ':');
 	while (pipex->env[i] != NULL)
 	{

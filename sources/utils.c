@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:45:09 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/04 15:29:30 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/04 15:40:25 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	close_tubes(t_pipex *pipex)
 	close(pipex->tube[1]);
 }
 
-int	get_exit_status(int status)
+int	get_status(int status)
 {
 	return (((status & 0xff00)) >> 8);
 }

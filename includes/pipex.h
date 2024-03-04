@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:30 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/04 15:29:42 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/04 15:40:31 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,8 @@ typedef struct s_pipex
 }	t_pipex;
 
 int		check_arguments(int argc);
-int		get_exit_status(int status);
-char	*find_env(char **path);
-void	build_env(t_pipex *pipex);
+int		get_status(int status);
+void	build_env(t_pipex *pipex, char **env);
 char	*add_cmd_env(t_pipex *pipex, char *cmd);
 void	error(char *msg_error);
 void	assign_variables(t_pipex *pipex, int argc, char **argv);
