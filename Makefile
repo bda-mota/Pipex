@@ -6,13 +6,13 @@
 #    By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/26 11:18:55 by bda-mota          #+#    #+#              #
-#    Updated: 2024/02/27 15:04:10 by bda-mota         ###   ########.fr        #
+#    Updated: 2024/03/04 14:12:07 by bda-mota         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= pipex
 NAME_BONUS	:= pipex_bonus
-CFLAGS		:= -Wextra -Wall -Werror
+CFLAGS		:= -Wextra -Wall -Werror -g3 -O0
 
 # LIBRARIES_PATH
 LIBFT_PATH = ./libft

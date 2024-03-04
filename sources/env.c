@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 18:27:57 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/01 17:30:53 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/04 12:20:29 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ char	*add_cmd_env(t_pipex *pipex, char *cmd)
 		i++;
 	}
 	free_split(take_first);
-	free(aux);
 	return (NULL);
 }
 

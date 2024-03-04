@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:30 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/01 12:58:56 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/04 15:29:42 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <stdlib.h>
 
 # define SUCESS 1
-# define FAILURE -1
+# define FAILURE 0
 # define WARNING_ENV "Path not found.\n"
 # define WARNING_ARGS_1 "Misssing arguments.\n"
 # define WARNING_ARGS_2 "Too many arguments.\n"
@@ -51,9 +51,12 @@ typedef struct s_pipex
 	int		tube[2];
 	int		pid1;
 	int		pid2;
+	int		fd1;
+	int		fd2;
 }	t_pipex;
 
 int		check_arguments(int argc);
+int		get_exit_status(int status);
 char	*find_env(char **path);
 void	build_env(t_pipex *pipex);
 char	*add_cmd_env(t_pipex *pipex, char *cmd);
