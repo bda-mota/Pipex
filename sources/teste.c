@@ -1,16 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 10:45:32 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/04 18:18:32 by bda-mota         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "../includes/pipex.h"
 
-#include "libft.h"
 
 static int	ft_count_words(char const *s, char c)
 {
@@ -75,7 +64,7 @@ static void	ft_count_char(char const *str, char c, char **array, size_t s_array)
 	}
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_splito(char const *s, char c)
 {
 	char	**array_str;
 	size_t	size;

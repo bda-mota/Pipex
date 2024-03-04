@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 18:27:57 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/04 15:39:59 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/04 18:42:16 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,16 @@
 static char	*find_env(char **env)
 {
 	int		i;
-	int		len;
-	char	*substring;
 
 	i = 0;
 	while (env[i])
 	{
 		if (ft_strnstr(env[i], "PATH=", 5))
-		{
-			len = ft_strlen(env[i]);
-			substring = ft_substr(env[i], 5, (len - 5));
-			if (substring == NULL)
-				return (NULL);
-			env[i] = substring;
-			return (env[i]);
-		}
+			return (env[i] + 5);
 		i++;
 	}
-	return (error(WARNING_ENV), NULL);
+	error(WARNING_ENV);
+	return (NULL);
 }
 
 void	build_env(t_pipex *pipex, char **env)
@@ -43,7 +35,9 @@ void	build_env(t_pipex *pipex, char **env)
 	i = 0;
 	pipex->complete_env = find_env(env);
 	pipex->env = ft_split(pipex->complete_env, ':');
-	while (pipex->env[i] != NULL)
+	if (!pipex->env)
+		return ;
+	while (pipex->env[i])
 	{
 		aux = ft_strdup(pipex->env[i]);
 		if (aux == NULL)
@@ -53,7 +47,6 @@ void	build_env(t_pipex *pipex, char **env)
 		free(aux);
 		i++;
 	}
-	free(pipex->complete_env);
 }
 
 char	*add_cmd_env(t_pipex *pipex, char *cmd)

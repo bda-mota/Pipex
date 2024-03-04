@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:30 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/04 15:40:31 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/04 18:16:00 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,6 @@ void	second_child(t_pipex *pipex, char *command);
 void	free_split(char **matrix);
 void	implement(t_pipex *pipex, char *command, char *executable);
 
+
+char	**ft_splito(char const *s, char c);
 #endif
