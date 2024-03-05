@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 18:27:57 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/05 13:49:19 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/05 15:15:21 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*add_cmd_env(t_pipex *pipex, char *cmd)
 	while (pipex->env[i])
 	{
 		aux_cmd = ft_strjoin(pipex->env[i], aux);
-		if (access(aux_cmd, F_OK) == 0)
+		if (access(aux_cmd, X_OK) == 0)
 		{
 			free_split(take_first);
 			return (aux_cmd);
@@ -72,17 +72,4 @@ char	*add_cmd_env(t_pipex *pipex, char *cmd)
 	}
 	free_split(take_first);
 	return (NULL);
-}
-
-void	free_split(char **matrix)
-{
-	int	i;
-
-	i = 0;
-	while (matrix[i])
-	{
-		free(matrix[i]);
-		i++;
-	}
-	free(matrix);
 }

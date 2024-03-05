@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:57:41 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/05 13:51:53 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/05 14:50:59 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	implement(t_pipex *pipex, char *command)
 	pipex->argv_child = ft_split(command, ' ');
 	if (pipex->argv_child == NULL)
 		set_error(pipex, 2, NULL);
-	executable = build_command(pipex);
+	executable = check_command(pipex);
 	if (executable == NULL)
 		set_error(pipex, 127, NULL);
 	execve(executable, pipex->argv_child, pipex->env);

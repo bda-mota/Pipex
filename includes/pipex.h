@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:30 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/05 13:49:32 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/05 14:51:11 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,15 @@
 # define WARNING_ARGS_2 "Too many arguments.\n"
 # define WARNING_ARGS_3 "Should be executed as: ./pipex file1 cmd1 cmd2 file2.\n"
 # define WARNING_FILES_1 "No such file or directory: "
-# define WARNING_FILES_2 "File unreadable.\n"
-# define WARNING_FILES_3 "Destination file is not writeable.\n"
-# define WARNING_FILES_4 "Error opening the file.\n"
 # define WARNING_CMD_1 ": command not found\n"
-# define WARNING_CMD_2 "Unreadable command.\n"
-# define WARNING_CMD_3 "Unexecutable command.\n"
 # define WARNING_TUBE "Error create the tube.\n"
+# define WARNING_SPLIT "Error allocating memory.\n" 
 
 typedef struct s_pipex
 {
 	char	**env;
 	char	**argv_child;
 	char	*complete_env;
-	char	*cmd1;
-	char	*cmd2;
 	char	*infile;
 	char	*outfile;
 	int		tube[2];
@@ -71,6 +65,6 @@ void	second_child(t_pipex *pipex, char *command);
 void	free_split(char **matrix);
 void	implement(t_pipex *pipex, char *command);
 void	set_error(t_pipex *pipex, int type, char *msg_error);
-char	*build_command(t_pipex *pipex);
+char	*check_command(t_pipex *pipex);
 
 #endif

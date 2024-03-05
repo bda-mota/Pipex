@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 14:43:29 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/05 13:48:59 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/05 15:13:59 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int check_arguments(int argc)
 		return (SUCESS);
 }
 
-char	*build_command(t_pipex *pipex)
+char	*check_command(t_pipex *pipex)
 {
 	char	*command;
 	char	*complete_command;
