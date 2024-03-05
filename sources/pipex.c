@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:57:41 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/04 15:51:59 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:03:14 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 void	first_child(t_pipex *pipex, char *command)
 {
-	if (access(pipex->infile, F_OK) == -1)
-		return ;
-	pipex->fd1 = open(pipex->infile, O_RDONLY);
-	if (pipex->fd1 == -1)
-		return ;
 	pipex->pid1 = fork();
 	if (pipex->pid1 == 0)
 	{
+		pipex->fd1 = open(pipex->infile, O_RDONLY);
+		if (pipex->fd1 == -1)
+		{
+			close(pipex->tube[1]);
+			free_split(pipex->env);
+			set_error(pipex, 1, pipex->infile);	
+		}
 		close(pipex->tube[0]);
 		dup2(pipex->tube[1], STDOUT_FILENO);
 		dup2(pipex->fd1, STDIN_FILENO);
@@ -33,15 +35,19 @@ void	first_child(t_pipex *pipex, char *command)
 
 void	second_child(t_pipex *pipex, char *command)
 {
-	pipex->fd2 = open(pipex->outfile, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	if (pipex->fd2 == -1)
-		return ;
 	pipex->pid2 = fork();
 	if (pipex->pid2 == 0)
 	{
+		pipex->fd2 = open(pipex->outfile, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+		if (pipex->fd2 == -1)
+		{
+			close(pipex->tube[0]);
+			free_split(pipex->env);
+			set_error(pipex, 1, pipex->outfile);			
+		}
 		close(pipex->tube[1]);
-		dup2(pipex->fd2, STDOUT_FILENO);
 		dup2(pipex->tube[0], STDIN_FILENO);
+		dup2(pipex->fd2, STDOUT_FILENO);
 		close(pipex->tube[0]);
 		close(pipex->fd2);
 		implement(pipex, command, pipex->cmd2);
@@ -52,6 +58,6 @@ void	implement(t_pipex *pipex, char *command, char *executable)
 {
 	pipex->argv_child = ft_split(command, ' ');
 	if (executable == NULL)
-		exit(0);
+		set_error(pipex, 127, NULL);
 	execve(executable, pipex->argv_child, pipex->env);
 }
