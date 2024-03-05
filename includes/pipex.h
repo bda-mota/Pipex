@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:30 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/05 13:16:27 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:49:32 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,13 @@ void	build_env(t_pipex *pipex, char **env);
 char	*add_cmd_env(t_pipex *pipex, char *cmd);
 int		get_status(int status);
 void	error(char *msg_error);
-int		check_files(t_pipex *pipex);
-int		check_commands(t_pipex *pipex);
 int		open_tube(t_pipex *pipex);
 void	close_tubes(t_pipex *pipex);
 void	first_child(t_pipex *pipex, char *command);
 void	second_child(t_pipex *pipex, char *command);
 void	free_split(char **matrix);
-void	implement(t_pipex *pipex, char *command, char *executable);
+void	implement(t_pipex *pipex, char *command);
 void	set_error(t_pipex *pipex, int type, char *msg_error);
-
+char	*build_command(t_pipex *pipex);
 
 #endif

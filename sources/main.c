@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:33 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/05 13:21:44 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:50:54 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,10 @@ int	main(int argc, char **argv, char **env)
 	return (get_status(status));
 }
 
-void	build_pipex(t_pipex *pipex, int argc, char **argv, char **env)
-{
-	if (check_arguments(argc) == 0)
-		exit (0);
-	assign_variables(pipex, argc, argv);
-	build_env(pipex, env);
-	check_commands(pipex);
-	open_tube(pipex);
-}
-
 void	free_memory(t_pipex *pipex)
 {
 	if (pipex->env)
 		free_split(pipex->env);
-	if (pipex->cmd1)
-		free(pipex->cmd1);
-	if (pipex->cmd1)
-		free(pipex->cmd2);
 }
 void	set_error(t_pipex *pipex, int type, char *msg_error)
 {
