@@ -6,25 +6,16 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:45:09 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/05 15:15:28 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/05 23:26:42 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-void	error(char *msg_error)
-{
-	while (*msg_error)
-	{
-		write(1, &*msg_error, 1);
-		msg_error++;
-	}
-}
-
 int	open_tube(t_pipex *pipex)
 {
 	if (pipe(pipex->tube) == -1)
-		return (error(WARNING_TUBE), FAILURE);
+		set_error(pipex, 1, NULL);
 	return (SUCESS);
 }
 
