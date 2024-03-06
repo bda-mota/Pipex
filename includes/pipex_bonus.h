@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:20:42 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/06 19:21:22 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/06 19:40:14 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@
 # define FAILURE 0
 # define WARNING_ENV "Path not found.\n"
 # define WARNING_ARGS_1 "Misssing arguments.\n"
-# define WARNING_ARGS_2 "Too many arguments.\n"
-# define WARNING_ARGS_3 "Should be executed as: ./pipex file1 cmd1 cmd2 file2.\n"
+# define WARNING_ARGS_2 "Try: ./pipex file1 cmd1 cm2 ... file2.\n"
 # define WARNING_FILES_1 "No such file or directory: "
 # define WARNING_CMD_1 ": command not found\n"
 # define WARNING_TUBE "Error create the tube.\n"
@@ -45,6 +44,7 @@ typedef struct s_pipex
 	char	*complete_env;
 	char	*infile;
 	char	*outfile;
+	int		qtd_cmd;
 	int		tube[2];
 	int		pid1;
 	int		pid2;

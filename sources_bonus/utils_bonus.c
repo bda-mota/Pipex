@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:45:09 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/06 19:21:49 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/06 19:41:29 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	assign_variables(t_pipex *pipex, int argc, char **argv)
 {
 	pipex->infile = argv[1];
 	pipex->outfile = argv[argc - 1];
+	pipex->qtd_cmd = argc - 3;
 }
 
 int	open_tube(t_pipex *pipex)
