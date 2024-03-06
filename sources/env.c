@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 18:27:57 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/05 23:28:49 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/06 16:35:08 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static char	*find_env(char **env)
 	i = 0;
 	while (env[i])
 	{
-		if (ft_strnstr(env[i], "PATH=", 5))
+		if (ft_strncmp(env[i], "PATH=", 5) == 0)
 			return (env[i] + 5);
 		i++;
 	}
@@ -52,7 +52,6 @@ void	build_env(t_pipex *pipex, char **env)
 char	*add_cmd_env(t_pipex *pipex, char *cmd)
 {
 	int		i;
-	char	*aux;
 	char	*aux_cmd;
 	char	**take_first;
 
@@ -60,10 +59,9 @@ char	*add_cmd_env(t_pipex *pipex, char *cmd)
 	take_first = ft_split(cmd, ' ');
 	if (take_first == NULL)
 		set_error(pipex, 2, NULL);
-	aux = take_first[0];
 	while (pipex->env[i])
 	{
-		aux_cmd = ft_strjoin(pipex->env[i], aux);
+		aux_cmd = ft_strjoin(pipex->env[i], take_first[0]);
 		if (access(aux_cmd, X_OK) == 0)
 		{
 			free_split(take_first);

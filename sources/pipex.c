@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:57:41 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/05 23:06:11 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/06 16:28:15 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	first_child(t_pipex *pipex, char *command)
 		{
 			close(pipex->tube[1]);
 			free_split(pipex->env);
-			set_error(pipex, 1, pipex->infile);	
+			set_error(pipex, 1, pipex->infile);
 		}
 		close(pipex->tube[0]);
 		dup2(pipex->tube[1], STDOUT_FILENO);
@@ -52,7 +52,7 @@ void	second_child(t_pipex *pipex, char *command)
 		{
 			close(pipex->tube[0]);
 			free_split(pipex->env);
-			set_error(pipex, 1, pipex->outfile);			
+			set_error(pipex, 1, pipex->outfile);
 		}
 		close(pipex->tube[1]);
 		dup2(pipex->tube[0], STDIN_FILENO);
@@ -65,8 +65,8 @@ void	second_child(t_pipex *pipex, char *command)
 
 void	implement(t_pipex *pipex, char *command)
 {
-	char *executable;
-	
+	char	*executable;
+
 	pipex->argv_child = ft_split(command, ' ');
 	if (pipex->argv_child == NULL)
 		set_error(pipex, 2, NULL);

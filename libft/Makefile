@@ -6,7 +6,7 @@
 #    By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/16 15:55:15 by bda-mota          #+#    #+#              #
-#    Updated: 2024/02/26 17:00:45 by bda-mota         ###   ########.fr        #
+#    Updated: 2024/03/06 16:15:28 by bda-mota         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ OBJ_DIR	:= obj
 
 MAKEFLAGS	+= --silent
 CC		:= cc
-FLAGS	:= -Wall -Werror -Wextra
+FLAGS	:= -Wall -Werror -Wextra -g3
 HEADER	:= -I ./src
 
 CFILES	:= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \

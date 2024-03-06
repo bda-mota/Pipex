@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 10:45:32 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/04 18:18:32 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/06 16:27:12 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ static void	ft_count_char(char const *str, char c, char **array, size_t s_array)
 			array[y] = ft_copy(str, (i - size), size);
 			y++;
 		}
-		i++;
+		if (str[i])
+			i++;
 	}
 }
 
