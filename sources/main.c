@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 11:13:33 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/06 14:40:33 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/06 18:29:27 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,3 @@ void	assign_variables(t_pipex *pipex, int argc, char **argv)
 	pipex->infile = argv[1];
 	pipex->outfile = argv[argc - 1];
 }
-
