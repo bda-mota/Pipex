@@ -6,7 +6,7 @@
 #    By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/26 11:18:55 by bda-mota          #+#    #+#              #
-#    Updated: 2024/03/06 16:51:42 by bda-mota         ###   ########.fr        #
+#    Updated: 2024/03/06 19:24:18 by bda-mota         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBONUS_PATH	:= objects_bonus
 # SOURCES
 CFILES		:= main.c pipex.c utils.c env.c check.c
 
-CBONUS		:=
+CBONUS		:= main_bonus.c pipex_bonus.c utils_bonus.c env_bonus.c check_bonus.c
 
 SRCS		:= $(addprefix $(SRC_PATH)/, $(CFILES))
 OBJS		:= $(addprefix $(OBJ_PATH)/, $(CFILES:%.c=%.o))
@@ -48,6 +48,8 @@ WHITE	:=	\033[1;37m
 BOLD	:=	\033[1;1m
 
 all: $(OBJ_PATH) $(NAME)
+
+bonus: libft $(NAME_BONUS)
 
 $(LIBFT):
 	@make -C $(LIBFT_PATH)
