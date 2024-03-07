@@ -6,19 +6,24 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 14:43:29 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/06 19:40:10 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/07 12:42:01 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex_bonus.h"
 
-int	check_arguments(int argc)
+int	check_name(char *filename)
 {
-	if (argc < 5)
-		return (ft_putstr_fd(WARNING_ARGS_1, 2),
-			ft_putstr_fd(WARNING_ARGS_2, 2), (FAILURE));
-	else
-		return (SUCESS);
+	char	*here_doc;
+	int		i;
+
+	i = 0;
+	here_doc = "here_doc";
+	while (filename[i] && here_doc[i] && filename[i] == here_doc[i])
+		i++;
+	if (filename[i] == '\0' && here_doc[i] == '\0')
+		return (0);
+	return (1);
 }
 
 char	*check_command(t_pipex *pipex)

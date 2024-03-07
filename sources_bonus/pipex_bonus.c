@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 10:57:41 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/06 19:44:19 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/07 12:45:12 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 
 void	build_pipex(t_pipex *pipex, int argc, char **argv, char **env)
 {
-	if (check_arguments(argc) == 0)
-		exit (1);
+	if (argc < 5)
+		set_error(pipex, 3, NULL);
+	if (check_name(argv[1]) == 0)
+		pipex->here_doc = TRUE;
+	else
+		pipex->here_doc = FALSE;
+	if (pipex->here_doc && argc < 6)
+		set_error(pipex, 3, NULL);
 	pipex->entire_env = env;
 	assign_variables(pipex, argc, argv);
 	build_env(pipex, env);
-	open_tube(pipex);
 }
 
 void	implement(t_pipex *pipex, char *command)

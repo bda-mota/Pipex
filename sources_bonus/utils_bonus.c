@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:45:09 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/06 19:41:29 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/07 12:08:09 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ void	set_error(t_pipex *pipex, int type, char *msg_error)
 	}
 	else if (type == 2)
 		ft_putstr_fd(WARNING_SPLIT, 2);
+	else if (type == 3)
+	{
+		ft_putstr_fd(WARNING_ARGS_1, 2);
+		ft_putstr_fd(WARNING_ARGS_2, 2);
+	}
 	else if (type == 127)
 	{
 		ft_putstr_fd(pipex->argv_child[0], 2);

@@ -6,7 +6,7 @@
 /*   By: bda-mota <bda-mota@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 19:20:42 by bda-mota          #+#    #+#             */
-/*   Updated: 2024/03/06 19:40:14 by bda-mota         ###   ########.fr       */
+/*   Updated: 2024/03/07 12:22:02 by bda-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 
 # define SUCESS 1
 # define FAILURE 0
+# define TRUE 1
+# define FALSE 0
 # define WARNING_ENV "Path not found.\n"
 # define WARNING_ARGS_1 "Misssing arguments.\n"
 # define WARNING_ARGS_2 "Try: ./pipex file1 cmd1 cm2 ... file2.\n"
@@ -44,6 +46,7 @@ typedef struct s_pipex
 	char	*complete_env;
 	char	*infile;
 	char	*outfile;
+	int		here_doc;
 	int		qtd_cmd;
 	int		tube[2];
 	int		pid1;
@@ -52,7 +55,7 @@ typedef struct s_pipex
 	int		fd2;
 }	t_pipex;
 
-int		check_arguments(int argc);
+int		check_name(char *filename);
 int		open_tube(t_pipex *pipex);
 char	*add_cmd_env(t_pipex *pipex, char *cmd);
 char	*check_command(t_pipex *pipex);
