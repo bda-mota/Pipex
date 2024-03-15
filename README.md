@@ -14,7 +14,7 @@ cmd1 -> first command
 
 cmd2 -> second command 
 
-outfile -> the file for outputk 
+outfile -> the file for output
 
 ### How to use 
 for example: 
